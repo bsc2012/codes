@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>test-spring-bean-lifecycle</module>
+  	<module>test-spring-bean-register</module>
   </modules>
 </project>
