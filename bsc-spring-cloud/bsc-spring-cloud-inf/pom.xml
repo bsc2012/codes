@@ -5,10 +5,9 @@
     <artifactId>bsc-spring-cloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>bsc-spring-cloud-service</artifactId>
+  <artifactId>bsc-spring-cloud-inf</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>bsc-spring-cloud-service-ribbon</module>
-  	<module>bsc-spring-cloud-service-feign</module>
+  	<module>bsc-spring-cloud-inf-feign</module>
   </modules>
 </project>

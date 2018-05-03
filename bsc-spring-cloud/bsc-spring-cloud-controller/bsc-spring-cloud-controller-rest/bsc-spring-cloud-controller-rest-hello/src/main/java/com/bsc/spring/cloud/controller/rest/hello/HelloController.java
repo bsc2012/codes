@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.bsc.spring.cloud.inf.feign.hello.IHelloService;
+
 @RestController
 public class HelloController {
 
@@ -15,13 +17,21 @@ public class HelloController {
 		return "hello " + name;
 	}
 	
-	
 	@Autowired(required=false)
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 	
-    @RequestMapping(value = "/sayHello")
-    public String sayHello(@RequestParam String name){
-    	System.out.println("hello service consumer");
+    @RequestMapping(value = "/ribbonHello")
+    public String ribbonHello(@RequestParam String name){
+    	System.out.println("ribbonHello service consumer");
         return restTemplate.getForObject("http://SERVICE-HELLO/hello?name="+name,String.class);
+    }
+    
+    @Autowired(required=true)
+    private IHelloService helloService;
+    
+    @RequestMapping(value = "/feignHello")
+    public String feignHello(@RequestParam String name){
+    	System.out.println("feignHello service consumer");
+        return helloService.hello(name);
     }
 }

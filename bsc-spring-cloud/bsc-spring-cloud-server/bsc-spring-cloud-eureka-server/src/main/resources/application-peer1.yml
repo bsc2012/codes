@@ -1,0 +1,8 @@
+spring:
+  profiles: peer1
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://132.121.94.202:8761/eureka/

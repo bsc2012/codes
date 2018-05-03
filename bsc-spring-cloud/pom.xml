@@ -9,5 +9,6 @@
   	<module>bsc-spring-cloud-client</module>
   	<module>bsc-spring-cloud-service</module>
   	<module>bsc-spring-cloud-controller</module>
+  	<module>bsc-spring-cloud-inf</module>
   </modules>
 </project>
