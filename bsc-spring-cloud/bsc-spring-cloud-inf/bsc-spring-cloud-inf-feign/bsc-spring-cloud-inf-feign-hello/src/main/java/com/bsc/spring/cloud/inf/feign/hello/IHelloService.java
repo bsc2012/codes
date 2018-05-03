@@ -4,7 +4,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value="service-hello")
+@FeignClient(value="service-hello",fallback=HelloServiceFallback.class)
 public interface IHelloService {
 
 	@GetMapping(value = "/hello")

@@ -26,7 +26,7 @@ public class HelloController {
         return restTemplate.getForObject("http://SERVICE-HELLO/hello?name="+name,String.class);
     }
     
-    @Autowired(required=true)
+    @Autowired(required=false)
     private IHelloService helloService;
     
     @RequestMapping(value = "/feignHello")
