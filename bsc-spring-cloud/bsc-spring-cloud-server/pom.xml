@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>bsc-spring-cloud-eureka-server</module>
+  	<module>bsc-spring-cloud-config-server</module>
   </modules>
 </project>
