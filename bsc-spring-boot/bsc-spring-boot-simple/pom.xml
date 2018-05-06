@@ -9,5 +9,10 @@
   <packaging>pom</packaging>
   <modules>
   	<module>bsc-spring-boot-simple-jpa</module>
+  	<module>bsc-spring-boot-simple-mybatis</module>
+  	<module>bsc-spring-boot-simple-dao</module>
+  	<module>bsc-spring-boot-simple-controller</module>
+  	<module>bsc-spring-boot-simple-model</module>
+  	<module>bsc-spring-boot-simple-service</module>
   </modules>
 </project>
