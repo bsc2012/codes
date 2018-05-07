@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.bsc.spring.cloud</groupId>
-		<artifactId>bsc-spring-cloud-client</artifactId>
+		<artifactId>bsc-spring-cloud-server</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>bsc-spring-cloud-eureka-client</artifactId>
+	<artifactId>bsc-spring-cloud-zipkin-server</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -14,22 +14,13 @@
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>io.zipkin.java</groupId>
+			<artifactId>zipkin-server</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.bsc.spring.cloud</groupId>
-			<artifactId>bsc-spring-cloud-controller-rest-hello</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>io.zipkin.java</groupId>
+			<artifactId>zipkin-autoconfigure-ui</artifactId>
 		</dependency>
 	</dependencies>
 
