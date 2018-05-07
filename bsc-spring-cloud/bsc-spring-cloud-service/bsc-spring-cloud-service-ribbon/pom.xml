@@ -28,11 +28,19 @@
 			<artifactId>spring-cloud-starter-hystrix</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>com.bsc.spring.cloud</groupId>
 			<artifactId>bsc-spring-cloud-controller-rest-hello</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
