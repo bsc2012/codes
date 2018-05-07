@@ -10,5 +10,6 @@
   <modules>
   	<module>bsc-spring-cloud-service-ribbon</module>
   	<module>bsc-spring-cloud-service-feign</module>
+  	<module>bsc-spring-cloud-service-zuul</module>
   </modules>
 </project>
