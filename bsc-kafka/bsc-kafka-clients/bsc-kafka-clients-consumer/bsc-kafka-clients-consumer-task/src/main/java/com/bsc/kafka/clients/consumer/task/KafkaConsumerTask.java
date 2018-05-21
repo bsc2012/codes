@@ -19,7 +19,7 @@ public class KafkaConsumerTask implements Runnable {
 		for (Map.Entry<Object, Object> entry : props.entrySet()) {
 			properties.put(entry.getKey(), entry.getValue());
 		}
-		kafkaConsumer = new KafkaConsumer<>(properties);
+		kafkaConsumer = new KafkaConsumer<String,String>(properties);
 		kafkaConsumer.subscribe(Collections.singletonList(topic));
 	}
 
@@ -36,7 +36,7 @@ public class KafkaConsumerTask implements Runnable {
 
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		props.put(KafkaProperties.bootstrap_servers, "192.168.58.129:9091");
+		props.put(KafkaProperties.bootstrap_servers, "192.168.99.100:9092");
 		props.put(KafkaProperties.group_id, "test-consumer-group");
 
 		String topic = "topic-p4-r1";

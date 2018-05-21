@@ -23,14 +23,14 @@ public class KafkaProducerTask implements Runnable {
 		for (Map.Entry<Object, Object> entry : props.entrySet()) {
 			properties.put(entry.getKey(), entry.getValue());
 		}
-		kafkaProducer = new KafkaProducer<>(properties);
+		kafkaProducer = new KafkaProducer<String,String>(properties);
 		this.topic = topic;
 	}
 
-	private BlockingQueue<ProducerRecord<String, String>> queue = new LinkedBlockingDeque<>(1024 * 1024);
+	private BlockingQueue<ProducerRecord<String, String>> queue = new LinkedBlockingDeque<ProducerRecord<String, String>>(1024 * 1024);
 
 	public void sendMessage(String key, String value) {
-		ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
+		ProducerRecord<String, String> record = new ProducerRecord<String,String>(topic, key, value);
 		try {
 			queue.put(record);
 		} catch (InterruptedException e) {
@@ -58,7 +58,7 @@ public class KafkaProducerTask implements Runnable {
 
 	public static void main(String[] args) throws InterruptedException {
 		Properties props = new Properties();
-		props.put(KafkaProperties.bootstrap_servers, "192.168.58.129:9091");
+		props.put(KafkaProperties.bootstrap_servers, "192.168.99.100:9092");
 
 		String topic = "topic-p4-r1";
 		KafkaProducerTask producerTask = new KafkaProducerTask(topic, props);
