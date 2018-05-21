@@ -1,4 +1,4 @@
-package com.bsc.kafka.clients.producer.task;
+package com.bsc.kafka.clients.serializer.avro.producer.task;
 
 import java.util.Map;
 import java.util.Properties;
@@ -6,15 +6,18 @@ import java.util.UUID;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
+import org.apache.avro.specific.SpecificRecordBase;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 import com.bsc.kafka.clients.properties.KafkaProperties;
+import com.bsc.kafka.clients.serializer.avro.AvroSerializer;
+import com.bsc.kafka.clients.serializer.avro.record.User;
 
-public class KafkaProducerTask implements Runnable {
+public class KafkaProducerTask<T extends SpecificRecordBase> implements Runnable{
 
-	private KafkaProducer<String, String> kafkaProducer;
+	private KafkaProducer<String, T> kafkaProducer;
 
 	private String topic;
 
@@ -23,14 +26,14 @@ public class KafkaProducerTask implements Runnable {
 		for (Map.Entry<Object, Object> entry : props.entrySet()) {
 			properties.put(entry.getKey(), entry.getValue());
 		}
-		kafkaProducer = new KafkaProducer<String,String>(properties);
+		kafkaProducer = new KafkaProducer<String,T>(properties);
 		this.topic = topic;
 	}
 
-	private BlockingQueue<ProducerRecord<String, String>> queue = new LinkedBlockingDeque<ProducerRecord<String, String>>(1024 * 1024);
+	private BlockingQueue<ProducerRecord<String, T>> queue = new LinkedBlockingDeque<ProducerRecord<String, T>>(1024 * 1024);
 
-	public void sendMessage(String key, String value) {
-		ProducerRecord<String, String> record = new ProducerRecord<String,String>(topic, key, value);
+	public void sendMessage(String key, T value) {
+		ProducerRecord<String, T> record = new ProducerRecord<String,T>(topic, key, value);
 		try {
 			queue.put(record);
 		} catch (InterruptedException e) {
@@ -40,7 +43,7 @@ public class KafkaProducerTask implements Runnable {
 
 	@Override
 	public void run() {
-		ProducerRecord<String, String> record;
+		ProducerRecord<String, T> record;
 		try {
 			while (true) {
 				record = queue.take();
@@ -57,16 +60,17 @@ public class KafkaProducerTask implements Runnable {
 
 	public static void main(String[] args) throws InterruptedException {
 		Properties props = new Properties();
-		props.put(KafkaProperties.bootstrap_servers, "132.121.88.104:9092");
+		props.put(KafkaProperties.bootstrap_servers, "192.168.99.100:9092");
+		props.put(KafkaProperties.value_serializer, AvroSerializer.class.getName());
 
-		String topic = "topic-p4-r1";
-		KafkaProducerTask producerTask = new KafkaProducerTask(topic, props);
+		String topic = "test";
+		KafkaProducerTask<User> producerTask = new KafkaProducerTask<>(topic, props);
 		new Thread(producerTask).start();
 
 		while (true) {
-			producerTask.sendMessage(String.valueOf(System.currentTimeMillis()), UUID.randomUUID().toString());
+			User user = User.newBuilder().setName(UUID.randomUUID().toString()).setAddress(UUID.randomUUID().toString()).build();
+			producerTask.sendMessage(String.valueOf(System.currentTimeMillis()), user);
 			Thread.sleep(10);
 		}
 	}
-
 }

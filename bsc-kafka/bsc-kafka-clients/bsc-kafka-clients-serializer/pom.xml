@@ -2,15 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.bsc.kafka</groupId>
-    <artifactId>bsc-kafka</artifactId>
+    <artifactId>bsc-kafka-clients</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>bsc-kafka-clients</artifactId>
+  <artifactId>bsc-kafka-clients-serializer</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>bsc-kafka-clients-consumer</module>
-  	<module>bsc-kafka-clients-producer</module>
-  	<module>bsc-kafka-clients-properties</module>
-  	<module>bsc-kafka-clients-serializer</module>
+  	<module>bsc-kafka-clients-serializer-avro</module>
   </modules>
 </project>

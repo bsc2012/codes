@@ -1,0 +1,9 @@
+{
+  "namespace": "com.bsc.kafka.clients.serializer.avro.record",
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "address", "type": ["string", "null"]}
+  ]
+}
