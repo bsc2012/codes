@@ -15,5 +15,10 @@
 			<artifactId>bsc-kafka-clients-properties</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.bsc.kafka</groupId>
+			<artifactId>bsc-kafka-clients-producer-partitioner</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

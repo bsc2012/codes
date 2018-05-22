@@ -12,6 +12,8 @@ public class KafkaProperties {
 
 	public final static String group_id = "group.id";
 
+	public final static String partitioner_class = "partitioner.class";
+
 	public final static String key_serializer = "key.serializer";
 	public final static String key_serializer_default = StringSerializer.class.getName();
 

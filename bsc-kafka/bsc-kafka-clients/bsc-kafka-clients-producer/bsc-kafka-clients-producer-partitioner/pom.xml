@@ -2,13 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.bsc.kafka</groupId>
-    <artifactId>bsc-kafka-clients</artifactId>
+    <artifactId>bsc-kafka-clients-producer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>bsc-kafka-clients-producer</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>bsc-kafka-clients-producer-task</module>
-  	<module>bsc-kafka-clients-producer-partitioner</module>
-  </modules>
+  <artifactId>bsc-kafka-clients-producer-partitioner</artifactId>
 </project>

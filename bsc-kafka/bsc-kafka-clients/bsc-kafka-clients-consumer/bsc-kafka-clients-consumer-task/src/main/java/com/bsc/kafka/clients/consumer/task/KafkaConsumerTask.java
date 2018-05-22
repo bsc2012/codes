@@ -19,7 +19,7 @@ public class KafkaConsumerTask implements Runnable {
 		for (Map.Entry<Object, Object> entry : props.entrySet()) {
 			properties.put(entry.getKey(), entry.getValue());
 		}
-		kafkaConsumer = new KafkaConsumer<String,String>(properties);
+		kafkaConsumer = new KafkaConsumer<String, String>(properties);
 		kafkaConsumer.subscribe(Collections.singletonList(topic));
 	}
 
@@ -28,18 +28,19 @@ public class KafkaConsumerTask implements Runnable {
 		while (true) {
 			ConsumerRecords<String, String> records = kafkaConsumer.poll(100);
 			for (ConsumerRecord<String, String> record : records) {
-				System.out.println(
-						Thread.currentThread().getName() + " consumer Message:key:" + record.key() + ",value:" + record.value() + ",partition:" + record.partition() + ",offset:" + record.offset());
+				System.out
+						.println(Thread.currentThread().getName() + " consumer Message:key:" + record.key() + ",value:"
+								+ record.value() + ",partition:" + record.partition() + ",offset:" + record.offset());
 			}
 		}
 	}
 
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		String bootstrap_servers = "132.121.88.104:9092";
+		String bootstrap_servers = "192.168.58.129:9092";
 		props.put(KafkaProperties.bootstrap_servers, bootstrap_servers);
 		props.put(KafkaProperties.group_id, "test-consumer-group");
-		//props.put("max.partition.fetch.bytes", "256");
+		// props.put("max.partition.fetch.bytes", "256");
 
 		String topic = "topic-p4-r1";
 		System.out.println("consumer for topic:" + topic + "," + bootstrap_servers);
@@ -48,8 +49,8 @@ public class KafkaConsumerTask implements Runnable {
 		KafkaConsumerTask consumerTask3 = new KafkaConsumerTask(topic, props);
 		KafkaConsumerTask consumerTask4 = new KafkaConsumerTask(topic, props);
 		new Thread(consumerTask1).start();
-//		new Thread(consumerTask2).start();
-//		new Thread(consumerTask3).start();
-//		new Thread(consumerTask4).start();
+		new Thread(consumerTask2).start();
+		new Thread(consumerTask3).start();
+		new Thread(consumerTask4).start();
 	}
 }
