@@ -1,15 +1,24 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.bsc.spring.cloud</groupId>
-    <artifactId>bsc-spring-cloud</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>bsc-spring-cloud-service</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>bsc-spring-cloud-service-ribbon</module>
-  	<module>bsc-spring-cloud-service-feign</module>
-  	<module>bsc-spring-cloud-service-zuul</module>
-  </modules>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.bsc.spring.cloud</groupId>
+		<artifactId>bsc-spring-cloud</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>bsc-spring-cloud-service</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>bsc-spring-cloud-service-ribbon</module>
+		<module>bsc-spring-cloud-service-feign</module>
+		<module>bsc-spring-cloud-service-zuul</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+			<version>${admin.starter.version}</version>
+		</dependency>
+	</dependencies>
 </project>

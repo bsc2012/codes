@@ -11,5 +11,6 @@
   	<module>bsc-spring-cloud-eureka-server</module>
   	<module>bsc-spring-cloud-config-server</module>
   	<module>bsc-spring-cloud-zipkin-server</module>
+  	<module>bsc-spring-boot-admin-server</module>
   </modules>
 </project>
