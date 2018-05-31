@@ -8,6 +8,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 
 import com.bsc.kafka.clients.producer.partitioner.MyPartitioner;
 import com.bsc.kafka.clients.properties.KafkaProperties;
@@ -45,10 +46,10 @@ public class KafkaProducerTask implements Runnable {
 		try {
 			while (true) {
 				record = queue.take();
-				kafkaProducer.send(record);
-				// RecordMetadata recordMetadata = kafkaProducer.send(record).get();
-				// System.out.println("offset:" + recordMetadata.offset() + ",partition:" +
-				// recordMetadata.partition());
+				//kafkaProducer.send(record);
+				 RecordMetadata recordMetadata = kafkaProducer.send(record).get();
+				 System.out.println("offset:" + recordMetadata.offset() + ",partition:" +
+				 recordMetadata.partition());
 				System.out.println(
 						Thread.currentThread().getName() + " producer Message:" + record.key() + ":" + record.value());
 			}
@@ -60,10 +61,11 @@ public class KafkaProducerTask implements Runnable {
 
 	public static void main(String[] args) throws InterruptedException {
 		Properties props = new Properties();
-		props.put(KafkaProperties.bootstrap_servers, "192.168.58.129:9092");
-		props.put(KafkaProperties.partitioner_class, MyPartitioner.class.getName());
+		props.put(KafkaProperties.bootstrap_servers, "132.121.88.104:9092");
+		//props.put(KafkaProperties.partitioner_class, MyPartitioner.class.getName());
 
-		String topic = "topic-p4-r1";
+		//String topic = "topic-p4-r1";
+		String topic = "test";
 		KafkaProducerTask producerTask = new KafkaProducerTask(topic, props);
 		Thread KafkaProducerThread = new Thread(producerTask);
 		KafkaProducerThread.start();

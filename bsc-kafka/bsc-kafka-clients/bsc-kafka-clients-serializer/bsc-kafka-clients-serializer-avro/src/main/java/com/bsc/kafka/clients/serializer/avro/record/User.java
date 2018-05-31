@@ -10,11 +10,13 @@ import org.apache.avro.specific.SpecificData;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class User extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4272674857195468203L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.bsc.kafka.clients.serializer.avro.record\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"address\",\"type\":[\"string\",\"null\"]}]}");
+  private static final long serialVersionUID = -2992004994564921960L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"User\",\"namespace\":\"com.bsc.kafka.clients.serializer.avro.record\",\"fields\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"address\",\"type\":[\"string\",\"null\"]},{\"name\":\"list\",\"type\":{\"type\":\"array\",\"items\":\"string\"}},{\"name\":\"map\",\"type\":{\"type\":\"map\",\"values\":\"int\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence name;
   @Deprecated public java.lang.CharSequence address;
+  @Deprecated public java.util.List<java.lang.CharSequence> list;
+  @Deprecated public java.util.Map<java.lang.CharSequence,java.lang.Integer> map;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -27,10 +29,14 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
    * All-args constructor.
    * @param name The new value for name
    * @param address The new value for address
+   * @param list The new value for list
+   * @param map The new value for map
    */
-  public User(java.lang.CharSequence name, java.lang.CharSequence address) {
+  public User(java.lang.CharSequence name, java.lang.CharSequence address, java.util.List<java.lang.CharSequence> list, java.util.Map<java.lang.CharSequence,java.lang.Integer> map) {
     this.name = name;
     this.address = address;
+    this.list = list;
+    this.map = map;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -39,6 +45,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     switch (field$) {
     case 0: return name;
     case 1: return address;
+    case 2: return list;
+    case 3: return map;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -49,6 +57,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
     switch (field$) {
     case 0: name = (java.lang.CharSequence)value$; break;
     case 1: address = (java.lang.CharSequence)value$; break;
+    case 2: list = (java.util.List<java.lang.CharSequence>)value$; break;
+    case 3: map = (java.util.Map<java.lang.CharSequence,java.lang.Integer>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -86,6 +96,38 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
   }
 
   /**
+   * Gets the value of the 'list' field.
+   * @return The value of the 'list' field.
+   */
+  public java.util.List<java.lang.CharSequence> getList() {
+    return list;
+  }
+
+  /**
+   * Sets the value of the 'list' field.
+   * @param value the value to set.
+   */
+  public void setList(java.util.List<java.lang.CharSequence> value) {
+    this.list = value;
+  }
+
+  /**
+   * Gets the value of the 'map' field.
+   * @return The value of the 'map' field.
+   */
+  public java.util.Map<java.lang.CharSequence,java.lang.Integer> getMap() {
+    return map;
+  }
+
+  /**
+   * Sets the value of the 'map' field.
+   * @param value the value to set.
+   */
+  public void setMap(java.util.Map<java.lang.CharSequence,java.lang.Integer> value) {
+    this.map = value;
+  }
+
+  /**
    * Creates a new User RecordBuilder.
    * @return A new User RecordBuilder
    */
@@ -119,6 +161,8 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
 
     private java.lang.CharSequence name;
     private java.lang.CharSequence address;
+    private java.util.List<java.lang.CharSequence> list;
+    private java.util.Map<java.lang.CharSequence,java.lang.Integer> map;
 
     /** Creates a new Builder */
     private Builder() {
@@ -139,6 +183,14 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
         this.address = data().deepCopy(fields()[1].schema(), other.address);
         fieldSetFlags()[1] = true;
       }
+      if (isValidValue(fields()[2], other.list)) {
+        this.list = data().deepCopy(fields()[2].schema(), other.list);
+        fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.map)) {
+        this.map = data().deepCopy(fields()[3].schema(), other.map);
+        fieldSetFlags()[3] = true;
+      }
     }
 
     /**
@@ -154,6 +206,14 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       if (isValidValue(fields()[1], other.address)) {
         this.address = data().deepCopy(fields()[1].schema(), other.address);
         fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.list)) {
+        this.list = data().deepCopy(fields()[2].schema(), other.list);
+        fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.map)) {
+        this.map = data().deepCopy(fields()[3].schema(), other.map);
+        fieldSetFlags()[3] = true;
       }
     }
 
@@ -235,12 +295,92 @@ public class User extends org.apache.avro.specific.SpecificRecordBase implements
       return this;
     }
 
+    /**
+      * Gets the value of the 'list' field.
+      * @return The value.
+      */
+    public java.util.List<java.lang.CharSequence> getList() {
+      return list;
+    }
+
+    /**
+      * Sets the value of the 'list' field.
+      * @param value The value of 'list'.
+      * @return This builder.
+      */
+    public com.bsc.kafka.clients.serializer.avro.record.User.Builder setList(java.util.List<java.lang.CharSequence> value) {
+      validate(fields()[2], value);
+      this.list = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'list' field has been set.
+      * @return True if the 'list' field has been set, false otherwise.
+      */
+    public boolean hasList() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'list' field.
+      * @return This builder.
+      */
+    public com.bsc.kafka.clients.serializer.avro.record.User.Builder clearList() {
+      list = null;
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'map' field.
+      * @return The value.
+      */
+    public java.util.Map<java.lang.CharSequence,java.lang.Integer> getMap() {
+      return map;
+    }
+
+    /**
+      * Sets the value of the 'map' field.
+      * @param value The value of 'map'.
+      * @return This builder.
+      */
+    public com.bsc.kafka.clients.serializer.avro.record.User.Builder setMap(java.util.Map<java.lang.CharSequence,java.lang.Integer> value) {
+      validate(fields()[3], value);
+      this.map = value;
+      fieldSetFlags()[3] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'map' field has been set.
+      * @return True if the 'map' field has been set, false otherwise.
+      */
+    public boolean hasMap() {
+      return fieldSetFlags()[3];
+    }
+
+
+    /**
+      * Clears the value of the 'map' field.
+      * @return This builder.
+      */
+    public com.bsc.kafka.clients.serializer.avro.record.User.Builder clearMap() {
+      map = null;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
     @Override
     public User build() {
       try {
         User record = new User();
         record.name = fieldSetFlags()[0] ? this.name : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.address = fieldSetFlags()[1] ? this.address : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.list = fieldSetFlags()[2] ? this.list : (java.util.List<java.lang.CharSequence>) defaultValue(fields()[2]);
+        record.map = fieldSetFlags()[3] ? this.map : (java.util.Map<java.lang.CharSequence,java.lang.Integer>) defaultValue(fields()[3]);
         return record;
       } catch (Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

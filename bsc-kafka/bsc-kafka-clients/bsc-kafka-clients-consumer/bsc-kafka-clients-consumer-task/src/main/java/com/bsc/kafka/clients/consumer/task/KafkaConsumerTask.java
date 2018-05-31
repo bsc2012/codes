@@ -37,12 +37,13 @@ public class KafkaConsumerTask implements Runnable {
 
 	public static void main(String[] args) {
 		Properties props = new Properties();
-		String bootstrap_servers = "192.168.58.129:9092";
+		String bootstrap_servers = "132.121.88.104:9092";
 		props.put(KafkaProperties.bootstrap_servers, bootstrap_servers);
 		props.put(KafkaProperties.group_id, "test-consumer-group");
 		// props.put("max.partition.fetch.bytes", "256");
 
-		String topic = "topic-p4-r1";
+		//String topic = "topic-p4-r1";
+		String topic = "test";
 		System.out.println("consumer for topic:" + topic + "," + bootstrap_servers);
 		KafkaConsumerTask consumerTask1 = new KafkaConsumerTask(topic, props);
 		KafkaConsumerTask consumerTask2 = new KafkaConsumerTask(topic, props);

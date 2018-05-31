@@ -4,6 +4,8 @@
   "name": "User",
   "fields": [
     {"name": "name", "type": "string"},
-    {"name": "address", "type": ["string", "null"]}
+    {"name": "address", "type": ["string", "null"]},
+    {"name": "list", "type":{"type": "array", "items": "string"}},
+    {"name": "map", "type":{"type": "map", "values": "int"}}
   ]
 }
