@@ -2,13 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.bsc.algorithm</groupId>
-    <artifactId>bsc-algorithm</artifactId>
+    <artifactId>bsc-algorithm-data</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>bsc-algorithm-data</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-  	<module>bsc-algorithm-data-generator</module>
-  	<module>bsc-algorithm-data-tree</module>
-  </modules>
+  <artifactId>bsc-algorithm-data-tree</artifactId>
 </project>
