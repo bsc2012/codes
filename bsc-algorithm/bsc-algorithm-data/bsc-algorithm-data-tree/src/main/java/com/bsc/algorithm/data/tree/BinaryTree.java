@@ -94,27 +94,34 @@ public class BinaryTree {
 	}
 
 	/**
-	 * 非递归后序遍历
+	 * 非递归后序遍历(左右根)
 	 * 
 	 * @param node
 	 * @param nodeHandler
 	 */
 	public static void postOrderTraversalByLoop(Node node, INodeHandler nodeHandler) {
+		//先进后出
 		Stack<Node> stack = new Stack<>();
-		Node curNode = node, prevNode = node;
+		Node curNode = node, prevHandlerNode = null;
 		while (curNode != null || !stack.isEmpty()) {
+			//1、越左的结点，越后push进stack，弹出时就越快，越先处理
 			while (curNode != null) {
 				stack.push(curNode);
 				curNode = curNode.getLeftNode();
 			}
+			
 			if (!stack.isEmpty()) {
 				Node rightNode = stack.peek().getRightNode();
-				if (rightNode == null || rightNode == prevNode) {
+				//当左结点不存在，或者右结点是刚刚处理过的结点
+				if (rightNode == null || rightNode == prevHandlerNode) {
+					//弹出即处理
 					curNode = stack.pop();
 					nodeHandler.handler(curNode);
-					prevNode = curNode;
+					//标记最近处理的结点为prevHandlerNode
+					prevHandlerNode = curNode;
+					//curNode处理后，它的左结点和右结点也必将处理过(如果存在的话)，所以不能让它回到第1步
 					curNode = null;
-				} else {
+				} else /*当前结点没有左结点，并且右结点存在并且不是前一个处理过的结点，将会在回到上面的第1步*/{
 					curNode = rightNode;
 				}
 			}

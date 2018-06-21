@@ -4,18 +4,23 @@ import java.util.Arrays;
 
 import com.bsc.algorithm.data.generator.ArrayGenerator;
 import com.bsc.algorithm.sort.inf.ISort;
-import com.bsc.algorithm.sort.select.SelectSort;
+import com.bsc.algorithm.sort.shell.ShellSort;
 
 public class Test {
 
 	public static void main(String[] args) {
-		int[] array = ArrayGenerator.randomInt(10, 1, 100);
-		ISort sort = new SelectSort();
-		System.out.println(Arrays.toString(array));
-		sort.sortAsc(array);
-		System.out.println(Arrays.toString(array));
-		sort.sortDesc(array);
-		System.out.println(Arrays.toString(array));
+		int[] array = ArrayGenerator.randomInt(26, 0, 25);
+		Character[] data = new Character[array.length];
+		for(int i = 0;i < array.length;i++){
+			data[i] = (char)('a' + array[i]);
+		}
+		
+		ISort<Character> sort = new ShellSort<Character>();
+		System.out.println("Ô­Ðò:" + Arrays.toString(data));
+		sort.sortAsc(data);
+		System.out.println("ÉýÐò:" + Arrays.toString(data));
+		sort.sortDesc(data);
+		System.out.println("½µÐò:" + Arrays.toString(data));
 		
 		
 /*		long total = 0;

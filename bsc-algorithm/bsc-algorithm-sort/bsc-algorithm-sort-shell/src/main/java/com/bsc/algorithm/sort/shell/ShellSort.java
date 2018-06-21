@@ -8,8 +8,8 @@ import com.bsc.algorithm.sort.insert.InsertSort;
  * @author bsc
  *
  */
-public class ShellSort extends InsertSort {
-	protected void sort(int[] data, int cr) {
+public class ShellSort<T extends Comparable<T>> extends InsertSort<T> {
+	protected void sort(T[] data, int cr) {
 		int length = data.length;
 		int increment = length / 2;
 		while (increment > 0) {

@@ -10,5 +10,6 @@
   <modules>
   	<module>bsc-algorithm-data-generator</module>
   	<module>bsc-algorithm-data-tree</module>
+  	<module>bsc-algorithm-data-btree</module>
   </modules>
 </project>

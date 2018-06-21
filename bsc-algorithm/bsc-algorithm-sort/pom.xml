@@ -13,5 +13,6 @@
   	<module>bsc-algorithm-sort-test</module>
   	<module>bsc-algorithm-sort-shell</module>
   	<module>bsc-algorithm-sort-select</module>
+  	<module>bsc-algorithm-sort-bubble</module>
   </modules>
 </project>
