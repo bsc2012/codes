@@ -39,5 +39,11 @@
 			<artifactId>bsc-algorithm-sort-bubble</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.bsc.algorithm</groupId>
+			<artifactId>bsc-algorithm-sort-quick</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

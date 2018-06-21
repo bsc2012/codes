@@ -14,5 +14,6 @@
   	<module>bsc-algorithm-sort-shell</module>
   	<module>bsc-algorithm-sort-select</module>
   	<module>bsc-algorithm-sort-bubble</module>
+  	<module>bsc-algorithm-sort-quick</module>
   </modules>
 </project>
