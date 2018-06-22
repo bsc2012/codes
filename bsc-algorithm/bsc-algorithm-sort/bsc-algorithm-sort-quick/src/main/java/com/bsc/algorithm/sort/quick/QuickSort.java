@@ -10,22 +10,23 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 		}
 		int i = low;
 		int j = hight;
+		//基准值
 		T benchmark = data[low];
 		do {
-			// cr == 1时(升序),benchmark <= data[j],直到找到一个 benchmark > data[j]
-			// cr == -1时(降序),benchmark >= data[j]
+			// cr == 1时(升序),data[j] >= benchmark,直到找到一个data[j] < benchmark
 			while (i < j && compare(benchmark, data[j]) != cr) {
 				j--;
 			}
-			// cr == 1时(升序),data[i] <= benchmark
-			// cr == -1时(降序),data[i] >= benchmark
+			// cr == 1时(升序),data[i] <= benchmark,直到找到一个 data[i] > benchmark
 			while (i < j && compare(data[i], benchmark) != cr) {
 				i++;
 			}
 			if (i < j) {
 				swap(data, i, j);
+			}else{
+				break;
 			}
-		} while (i < j);
+		} while (true);
 		data[low] = data[i];
 		data[i] = benchmark;
 		sort(data, low, i - 1, cr);

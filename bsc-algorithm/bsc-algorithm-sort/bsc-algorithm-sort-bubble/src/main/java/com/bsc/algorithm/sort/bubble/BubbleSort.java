@@ -22,8 +22,8 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 					index = j;
 				}
 			}
-			//如果到这一步,index=0，证明没有发生过交换，排序结序
-			//就算发生交换，只要后面的数交换得少，这样index的值相对于length--也会减少得比较快
+			//如果index=0,证明没有发生过交换，排序结束
+			//如果index>0,证明发生过交换,记录的是最大交换位置
 			length = index;
 		} while (index > 0);
 	}

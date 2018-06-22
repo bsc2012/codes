@@ -2,8 +2,16 @@ package com.bsc.algorithm.sort.inf;
 
 public interface ISort<T extends Comparable<T>> {
 
+	/**
+	 * ÉýÐò
+	 * @param data
+	 */
 	void sortAsc(T[] data);
 
+	/**
+	 * ½µÐò
+	 * @param data
+	 */
 	void sortDesc(T[] data);
 
 	/**

@@ -6,9 +6,19 @@ import com.bsc.algorithm.data.generator.ArrayGenerator;
 import com.bsc.algorithm.sort.inf.ISort;
 import com.bsc.algorithm.sort.quick.QuickSort;
 
-public class Test {
+public class Test<T extends Comparable<T>> {
+	
+	public boolean isAsc(T[] data){
+		for(int i = 0;i < data.length - 1;i++){
+			if(data[i].compareTo(data[i + 1]) > 0){
+				return false;
+			}
+		}
+		return true;
+	}
 
 	public static void main(String[] args) {
+		Test<Integer> test = new Test<>();
 		int[] array = ArrayGenerator.randomInt(10, 0, 99);
 		Integer[] data = new Integer[array.length];
 		for(int i = 0;i < array.length;i++){
@@ -19,29 +29,8 @@ public class Test {
 		ISort<Integer> sort = new QuickSort<Integer>();
 		System.out.println("Ô­Ðò:" + Arrays.toString(data));
 		sort.sortAsc(data);
-		System.out.println("ÉýÐò:" + Arrays.toString(data));
+		System.out.println("ÉýÐò:" + test.isAsc(data) + ":" + Arrays.toString(data));
 		sort.sortDesc(data);
 		System.out.println("½µÐò:" + Arrays.toString(data));
-		
-		
-/*		long total = 0;
-		ISort sort = new InsertSort();
-		for(int i = 0;i < 1000;i++){
-			int[] array = ArrayGenerator.randomInt(1000, 1, 10000);
-			long start = System.currentTimeMillis();
-			sort.sortAsc(array);
-			total += System.currentTimeMillis() - start;
-		}
-		System.out.println("²åÈëÅÅÐòºÄÊ±:" + total);
-		
-		total = 0;
-		sort = new ShellSort();
-		for(int i = 0;i < 1000;i++){
-			int[] array = ArrayGenerator.randomInt(1000, 1, 10000);
-			long start = System.currentTimeMillis();
-			sort.sortAsc(array);
-			total += System.currentTimeMillis() - start;
-		}
-		System.out.println("Ï£¶ûÅÅÐòºÄÊ±:" + total);*/
 	}
 }
