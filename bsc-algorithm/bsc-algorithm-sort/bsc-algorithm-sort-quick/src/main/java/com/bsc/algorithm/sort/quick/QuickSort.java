@@ -1,7 +1,10 @@
 package com.bsc.algorithm.sort.quick;
 
 import com.bsc.algorithm.sort.inf.AbstractSort;
-
+/**
+ * øÏÀŸ≈≈–Ú
+ * @author bsc
+ */
 public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 
 	private void sort(T[] data, int low, int hight, int cr) {

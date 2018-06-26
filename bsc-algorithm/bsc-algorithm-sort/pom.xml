@@ -15,5 +15,7 @@
   	<module>bsc-algorithm-sort-select</module>
   	<module>bsc-algorithm-sort-bubble</module>
   	<module>bsc-algorithm-sort-quick</module>
+  	<module>bsc-algorithm-sort-merge</module>
+  	<module>bsc-algorithm-sort-heap</module>
   </modules>
 </project>
