@@ -15,7 +15,7 @@ import com.bsc.algorithm.sort.shell.ShellSort;
 public class SortTestAll {
 
 	public static void main(String[] args) {
-		Integer[] data = ArrayGenerator.random(Integer[].class, 10000, 0, 10000);
+		Integer[] data = ArrayGenerator.random(Integer[].class, 30000, 0, 30000);
 //		Integer[] data = ArrayGenerator.seq(Integer[].class, 10000, 10000, -1);
 		Integer[] insertData = Arrays.copyOf(data, data.length);
 		Integer[] selectData = Arrays.copyOf(data, data.length);
