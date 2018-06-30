@@ -7,7 +7,7 @@ import com.bsc.algorithm.sort.inf.AbstractSort;
  */
 public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 
-	private void sort(T[] data, int low, int hight, int cr) {
+	private void quickSort(T[] data, int low, int hight, int cr) {
 		if (low >= hight) {
 			return;
 		}
@@ -40,8 +40,8 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 	}
 
 	@Override
-	protected void sort(T[] data, int cr) {
-		sort(data, 0, data.length - 1, cr);
+	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
+		quickSort(data, 0, data.length - 1, cr);
 	}
 
 }

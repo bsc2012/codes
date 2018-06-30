@@ -10,7 +10,7 @@ import com.bsc.algorithm.sort.inf.AbstractSort;
  */
 public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 
-	protected void sort(T[] data, int cr) {
+	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
 		int length = data.length;
 		int index;
 		do {
@@ -29,7 +29,7 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 		} while (index > 0);
 	}
 
-	protected void sort2(T[] data, int cr) {
+	protected void sort2(T[] data, int firstIndex, int lastIndex, int cr) {
 		int length = data.length;
 		boolean isSwap;
 		do {
@@ -47,7 +47,7 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 		} while (isSwap);
 	}
 
-	protected void sort3(T[] data, int cr) {
+	protected void sort3(T[] data, int firstIndex, int lastIndex, int cr) {
 		int length = data.length;
 		for (int i = 0; i < length - 1; i++) {
 			//一次冒泡过程，把最大值移到第length - i - 1位

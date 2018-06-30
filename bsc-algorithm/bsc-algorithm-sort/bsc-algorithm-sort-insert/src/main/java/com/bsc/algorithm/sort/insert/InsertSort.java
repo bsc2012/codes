@@ -16,7 +16,7 @@ public class InsertSort<T extends Comparable<T>> extends AbstractSort<T> {
 	 * @param cr
 	 *            1代表升序,-1代表降序
 	 */
-	protected void sort(T[] data, int cr) {
+	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
 		sort(data, cr, 1);
 	}
 

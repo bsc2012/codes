@@ -45,7 +45,7 @@ public class HeapSort<T extends Comparable<T>> extends AbstractSort<T> {
 	}
 
 	@Override
-	protected void sort(T[] data, int cr) {
+	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
 		int length = data.length;
 		// 循环建立初始堆
 		// (data.length - 2) / 2 : 最大非叶子结点位置

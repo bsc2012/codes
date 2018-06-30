@@ -16,7 +16,7 @@ public class SelectSort<T extends Comparable<T>> extends AbstractSort<T> {
 	 * ...
 	 * 找出倒数第2个与最后一个元素中最小值，与倒数第2个交换
 	 */
-	protected void sort(T[] data, int cr) {
+	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
 		int length = data.length;
 
 		for (int i = 0; i < length - 1; i++) {
