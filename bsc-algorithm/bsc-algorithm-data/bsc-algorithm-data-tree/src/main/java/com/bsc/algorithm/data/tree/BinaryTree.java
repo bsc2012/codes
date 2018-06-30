@@ -5,7 +5,7 @@ import java.util.Stack;
 public class BinaryTree {
 
 	/**
-	 * 递归前序遍历
+	 * 递归前序遍历(中左右)
 	 * 
 	 * @param node
 	 * @param nodeHandler
@@ -20,7 +20,7 @@ public class BinaryTree {
 	}
 
 	/**
-	 * 非递归前序遍历
+	 * 非递归前序遍历(中左右)
 	 * 
 	 * @param node
 	 * @param nodeHandler
@@ -30,19 +30,24 @@ public class BinaryTree {
 		Node curNode = node;
 		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
+				//先处理(中)
 				nodeHandler.handler(curNode);
+				//再入栈(栈内结点已处理)
 				stack.push(curNode);
+				//再找左结点(左)
 				curNode = curNode.getLeftNode();
 			}
 			if (!stack.isEmpty()) {
+				//左结点没有，或者左结点已处理，弹出一个栈内结点
 				curNode = stack.pop();
+				//看右结点是否存在(右)
 				curNode = curNode.getRightNode();
 			}
 		}
 	}
 
 	/**
-	 * 递归中序遍历
+	 * 递归中序遍历(左中右)
 	 * 
 	 * @param node
 	 * @param nodeHandler
@@ -57,7 +62,7 @@ public class BinaryTree {
 	}
 
 	/**
-	 * 非递归中序遍历
+	 * 非递归中序遍历(左中右)
 	 * 
 	 * @param node
 	 * @param nodeHandler
@@ -67,19 +72,24 @@ public class BinaryTree {
 		Node curNode = node;
 		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
+				//先入栈(栈内结点未处理)
 				stack.push(curNode);
+				//再找左结点(左)
 				curNode = curNode.getLeftNode();
 			}
 			if (!stack.isEmpty()) {
+				//左结点没有，或者左结点已处理，弹出一个栈内结点
 				curNode = stack.pop();
+				//处理(中)
 				nodeHandler.handler(curNode);
+				//看右结点是否存在(右)
 				curNode = curNode.getRightNode();
 			}
 		}
 	}
 
 	/**
-	 * 递归后序遍历
+	 * 递归后序遍历(左右中)
 	 * 
 	 * @param node
 	 * @param nodeHandler
@@ -94,7 +104,7 @@ public class BinaryTree {
 	}
 
 	/**
-	 * 非递归后序遍历(左右根)
+	 * 非递归后序遍历(左右中)
 	 * 
 	 * @param node
 	 * @param nodeHandler

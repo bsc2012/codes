@@ -3,14 +3,13 @@ package com.bsc.algorithm.sort.test;
 import java.util.Arrays;
 
 import com.bsc.algorithm.data.generator.ArrayGenerator;
-import com.bsc.algorithm.sort.heap.HeapSort;
 import com.bsc.algorithm.sort.inf.ISort;
-import com.bsc.algorithm.sort.select.SelectSort;
+import com.bsc.algorithm.sort.insert.InsertSort;
 
 public class SortTest {
 
 	public static void main(String[] args) {
-		ISort<Integer> sortInt = new SelectSort<Integer>();
+		ISort<Integer> sortInt = new InsertSort<Integer>();
 
 		Integer[] dataInt = ArrayGenerator.random(Integer[].class, 10, 0, 99);
 		System.out.println("Ô­Ðò:" + Arrays.toString(dataInt));
@@ -22,7 +21,7 @@ public class SortTest {
 		sortInt.sortDesc(dataInt);
 		System.out.println("½µÐò:" + Arrays.toString(dataInt) + "\n");
 
-		ISort<Character> sortChar = new SelectSort<Character>();
+		ISort<Character> sortChar = new InsertSort<Character>();
 
 		Character[] dataChar = ArrayGenerator.random(Character[].class, 10, 65, 90);
 		System.out.println("Ô­Ðò:" + Arrays.toString(dataChar));
