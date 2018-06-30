@@ -13,6 +13,18 @@ public interface ISort<T extends Comparable<T>> {
 	 * @param data
 	 */
 	void sortDesc(T[] data);
+	
+	/**
+	 * 升序
+	 * @param data
+	 */
+	void sortAsc(T[] data, int firstIndex, int lastIndex);
+
+	/**
+	 * 降序
+	 * @param data
+	 */
+	void sortDesc(T[] data, int firstIndex, int lastIndex);
 
 	/**
 	 * 比较a,b两个值,a大返回1，b大返回-1，相等返回0

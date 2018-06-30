@@ -45,19 +45,19 @@ public class HeapSort<T extends Comparable<T>> extends AbstractSort<T> {
 	}
 
 	@Override
-	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
-		int length = data.length;
+	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
+		int length = lastIndex + 1;
 		// 循环建立初始堆
 		// (data.length - 2) / 2 : 最大非叶子结点位置
-		for (int i = (length - 2) / 2; i >= 0; i--) {
+		for (int i = (length - 2) / 2; i >= firstIndex; i--) {
 			heapAdjust(data, i, length, cr);
 		}
 		// 进行n-1次循环，完成排序
-		for (int i = length - 1; i > 0; i--) {
+		for (int i = length - 1; i > firstIndex; i--) {
 			// 交换堆顶的元素和最后一个元素，此时最后一个位置作为有序区
-			swap(data, 0, i);
+			swap(data, firstIndex, i);
 			// 然后进行其他无序区的堆调整，重新得到大顶堆后
-			heapAdjust(data, 0, i, cr);
+			heapAdjust(data, firstIndex, i, cr);
 		}
 	}
 

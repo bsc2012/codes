@@ -40,7 +40,7 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 	}
 
 	@Override
-	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
+	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
 		quickSort(data, 0, data.length - 1, cr);
 	}
 

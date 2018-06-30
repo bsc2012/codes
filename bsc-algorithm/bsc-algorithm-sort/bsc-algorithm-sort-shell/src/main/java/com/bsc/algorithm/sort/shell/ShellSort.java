@@ -9,7 +9,7 @@ import com.bsc.algorithm.sort.insert.InsertSort;
  *
  */
 public class ShellSort<T extends Comparable<T>> extends InsertSort<T> {
-	protected void sort(T[] data, int cr) {
+	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
 		int length = data.length;
 		//初始步长为数组长度的一半
 		int increment = length / 2;

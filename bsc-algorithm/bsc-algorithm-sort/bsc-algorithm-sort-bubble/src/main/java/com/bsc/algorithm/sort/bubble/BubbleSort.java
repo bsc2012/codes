@@ -10,13 +10,13 @@ import com.bsc.algorithm.sort.inf.AbstractSort;
  */
 public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 
-	protected void sort(T[] data, int firstIndex, int lastIndex, int cr) {
-		int length = data.length;
+	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
+		int length = lastIndex + 1;
 		int index;
 		do {
 			index = 0;
 			//一次冒泡过程，index记录的是最大的交换位置，后面的数已经排好序且比前面的数都大
-			for (int j = 1; j < length; j++) {
+			for (int j = firstIndex + 1; j < length; j++) {
 				if (compare(data[j - 1], data[j]) == cr) {
 					swap(data, j - 1, j);
 					//记录下交换的位置,至少是1
@@ -29,13 +29,13 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 		} while (index > 0);
 	}
 
-	protected void sort2(T[] data, int firstIndex, int lastIndex, int cr) {
-		int length = data.length;
+	public void sort2(T[] data, int cr, int firstIndex, int lastIndex) {
+		int length = lastIndex + 1;
 		boolean isSwap;
 		do {
 			isSwap = false;
 			//一次冒泡过程，如果没有发生交换，证明已经排好序
-			for (int j = 1; j < length; j++) {
+			for (int j = firstIndex + 1; j < length; j++) {
 				if (compare(data[j - 1], data[j]) == cr) {
 					swap(data, j - 1, j);
 					//有交换过
@@ -47,11 +47,11 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 		} while (isSwap);
 	}
 
-	protected void sort3(T[] data, int firstIndex, int lastIndex, int cr) {
-		int length = data.length;
+	public void sort3(T[] data, int cr, int firstIndex, int lastIndex) {
+		int length = lastIndex + 1;
 		for (int i = 0; i < length - 1; i++) {
 			//一次冒泡过程，把最大值移到第length - i - 1位
-			for (int j = 1; j < length - i; j++) {
+			for (int j = firstIndex + 1; j < length - i; j++) {
 				if (compare(data[j - 1], data[j]) == cr) {
 					swap(data, j - 1, j);
 				}
