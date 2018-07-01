@@ -35,13 +35,13 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 		} while (true);
 		data[low] = data[i];
 		data[i] = benchmark;
-		sort(data, low, i - 1, cr);
-		sort(data, i + 1, hight, cr);
+		quickSort(data, low, i - 1, cr);
+		quickSort(data, i + 1, hight, cr);
 	}
 
 	@Override
 	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
-		quickSort(data, 0, data.length - 1, cr);
+		quickSort(data, firstIndex, lastIndex, cr);
 	}
 
 }

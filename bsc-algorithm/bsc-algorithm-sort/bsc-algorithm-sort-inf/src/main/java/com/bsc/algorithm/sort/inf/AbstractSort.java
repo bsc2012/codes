@@ -23,7 +23,7 @@ public abstract class AbstractSort<T extends Comparable<T>> implements ISort<T> 
 	}
 
 	private void sort(T[] data, int cr) {
-		sort(data, 0, data.length - 1, cr);
+		sort(data, cr, 0, data.length - 1);
 	}
 
 	public abstract void sort(T[] data, int cr, int firstIndex, int lastIndex);

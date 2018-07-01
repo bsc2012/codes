@@ -69,8 +69,8 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
 	@Override
 	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
 		//排序开始时就创建一个临时数组，避免在合并有序数组过程中不断创建新的数组
-		T[] tempData = (T[]) Array.newInstance(data.getClass().getComponentType(), data.length);
-		sort(data, 0, data.length - 1, cr, tempData);
+		T[] tempData = (T[]) Array.newInstance(data.getClass().getComponentType(), lastIndex - firstIndex + 1);
+		sort(data, firstIndex, lastIndex, cr, tempData);
 	}
 
 }

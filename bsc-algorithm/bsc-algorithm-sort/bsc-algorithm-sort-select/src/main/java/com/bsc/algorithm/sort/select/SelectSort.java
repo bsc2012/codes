@@ -17,9 +17,9 @@ public class SelectSort<T extends Comparable<T>> extends AbstractSort<T> {
 	 * 找出倒数第2个与最后一个元素中最小值，与倒数第2个交换
 	 */
 	public void sort(T[] data, int cr, int firstIndex, int lastIndex) {
-		int length = data.length;
+		int length = lastIndex + 1;
 
-		for (int i = 0; i < length - 1; i++) {
+		for (int i = firstIndex; i < length - 1; i++) {
 			//最小值
 			T minValue = data[i];
 			//最小值数组座标

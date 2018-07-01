@@ -15,7 +15,7 @@ public class ShellSort<T extends Comparable<T>> extends InsertSort<T> {
 		int increment = length / 2;
 		while (increment > 0) {
 			//进行插入排序
-			sort(data, cr, increment);
+			sort(data, cr, increment, firstIndex, lastIndex);
 			//步长每次减少一半(保证最后一次排序步长为1)
 			increment = increment / 2;
 		}
