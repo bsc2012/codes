@@ -1,38 +1,38 @@
 package com.bsc.algorithm.data.tree;
 
-public class Node {
+public class Node<T extends Comparable<T>> {
 
-	private int data;
-	private Node leftNode;
-	private Node rightNode;
+	private T data;
+	private Node<T> leftNode;
+	private Node<T> rightNode;
 
-	public Node(int data, Node leftNode, Node rightNode) {
+	public Node(T data, Node<T> leftNode, Node<T> rightNode) {
 		this.data = data;
 		this.leftNode = leftNode;
 		this.rightNode = rightNode;
 	}
 
-	public int getData() {
+	public T getData() {
 		return data;
 	}
 
-	public void setData(int data) {
+	public void setData(T data) {
 		this.data = data;
 	}
 
-	public Node getLeftNode() {
+	public Node<T> getLeftNode() {
 		return leftNode;
 	}
 
-	public void setLeftNode(Node leftNode) {
+	public void setLeftNode(Node<T> leftNode) {
 		this.leftNode = leftNode;
 	}
 
-	public Node getRightNode() {
+	public Node<T> getRightNode() {
 		return rightNode;
 	}
 
-	public void setRightNode(Node rightNode) {
+	public void setRightNode(Node<T> rightNode) {
 		this.rightNode = rightNode;
 	}
 

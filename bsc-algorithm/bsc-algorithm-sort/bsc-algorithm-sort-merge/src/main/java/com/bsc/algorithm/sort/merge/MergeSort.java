@@ -2,7 +2,6 @@ package com.bsc.algorithm.sort.merge;
 
 import java.lang.reflect.Array;
 
-import com.bsc.algorithm.sort.inf.AbstractSort;
 /**
  * 归并排序
  * @author bsc
@@ -10,43 +9,7 @@ import com.bsc.algorithm.sort.inf.AbstractSort;
  * 2、将A分成C,D两段，如果C无序，再进行这一步操作，将A替换成C，如果D无序，再进行这一步操作，将A替换成D，如果C,D分别都有序，将它们合并
  * 3、如果一段数组无序，那证明它至少有两个元素，可以再进行拆分，直到只有一个元素，这时代表这一段数组是有序的
  */
-public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
-
-	/**
-	 * 合并两个有序的数组为一个有序的数组
-	 * @param data
-	 * @param low
-	 * @param middle
-	 * @param hight
-	 * @param cr
-	 * @param tempData
-	 */
-	private void merge(T[] data, int low, int middle, int hight, int cr, T[] tempData) {
-		int tempDataLength = hight - low + 1;
-		int i = low;
-		int j = middle + 1;
-		int k = 0;
-		// 把较小的数先移到临时数组中
-		while (i <= middle && j <= hight) {
-			if (compare(data[j], data[i]) == cr) {
-				tempData[k++] = data[i++];
-			} else {
-				tempData[k++] = data[j++];
-			}
-		}
-		// 把左边剩余的数移入临时数组
-		while (i <= middle) {
-			tempData[k++] = data[i++];
-		}
-		// 把右边边剩余的数移入临时数组
-		while (j <= hight) {
-			tempData[k++] = data[j++];
-		}
-		for (int x = 0; x < tempDataLength; x++) {
-			data[x + low] = tempData[x];
-		}
-	}
-
+public class MergeSort<T extends Comparable<T>> extends AbstractMergeSort<T> {
 	/**
 	 * 对data数组第low位到第hight位数进行排序
 	 * 将前半部份和后半部份分别进行排序，再进行合并

@@ -2,15 +2,16 @@ package com.bsc.algorithm.data.tree;
 
 import java.util.Stack;
 
-public class BinaryTree {
+public class BinaryTree{
 
 	/**
 	 * 递归前序遍历(中左右)
+	 * @param <T>
 	 * 
 	 * @param node
 	 * @param nodeHandler
 	 */
-	public static void preOrderTraversal(Node node, INodeHandler nodeHandler) {
+	public static <T extends Comparable<T>> void preOrderTraversal(Node<T> node, INodeHandler<T> nodeHandler) {
 		if (node == null) {
 			return;
 		}
@@ -21,13 +22,14 @@ public class BinaryTree {
 
 	/**
 	 * 非递归前序遍历(中左右)
+	 * @param <T>
 	 * 
 	 * @param node
 	 * @param nodeHandler
 	 */
-	public static void preOrderTraversalByLoop(Node node, INodeHandler nodeHandler) {
-		Stack<Node> stack = new Stack<>();
-		Node curNode = node;
+	public static <T extends Comparable<T>> void preOrderTraversalByLoop(Node<T> node, INodeHandler<T> nodeHandler) {
+		Stack<Node<T>> stack = new Stack<>();
+		Node<T> curNode = node;
 		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
 				//先处理(中)
@@ -52,7 +54,7 @@ public class BinaryTree {
 	 * @param node
 	 * @param nodeHandler
 	 */
-	public static void inOrderTraversal(Node node, INodeHandler nodeHandler) {
+	public static <T extends Comparable<T>> void inOrderTraversal(Node<T> node, INodeHandler<T> nodeHandler) {
 		if (node == null) {
 			return;
 		}
@@ -67,9 +69,9 @@ public class BinaryTree {
 	 * @param node
 	 * @param nodeHandler
 	 */
-	public static void inOrderTraversalByLoop(Node node, INodeHandler nodeHandler) {
-		Stack<Node> stack = new Stack<>();
-		Node curNode = node;
+	public static <T extends Comparable<T>> void inOrderTraversalByLoop(Node<T> node, INodeHandler<T> nodeHandler) {
+		Stack<Node<T>> stack = new Stack<>();
+		Node<T> curNode = node;
 		while (curNode != null || !stack.isEmpty()) {
 			while (curNode != null) {
 				//先入栈(栈内结点未处理)
@@ -94,7 +96,7 @@ public class BinaryTree {
 	 * @param node
 	 * @param nodeHandler
 	 */
-	public static void postOrderTraversal(Node node, INodeHandler nodeHandler) {
+	public static <T extends Comparable<T>> void postOrderTraversal(Node<T> node, INodeHandler<T> nodeHandler) {
 		if (node == null) {
 			return;
 		}
@@ -109,10 +111,10 @@ public class BinaryTree {
 	 * @param node
 	 * @param nodeHandler
 	 */
-	public static void postOrderTraversalByLoop(Node node, INodeHandler nodeHandler) {
+	public static <T extends Comparable<T>> void postOrderTraversalByLoop(Node<T> node, INodeHandler<T> nodeHandler) {
 		//先进后出
-		Stack<Node> stack = new Stack<>();
-		Node curNode = node, prevHandlerNode = null;
+		Stack<Node<T>> stack = new Stack<>();
+		Node<T> curNode = node, prevHandlerNode = null;
 		while (curNode != null || !stack.isEmpty()) {
 			//1、越左的结点，越后push进stack，弹出时就越快，越先处理
 			while (curNode != null) {
@@ -121,7 +123,7 @@ public class BinaryTree {
 			}
 			
 			if (!stack.isEmpty()) {
-				Node rightNode = stack.peek().getRightNode();
+				Node<T> rightNode = stack.peek().getRightNode();
 				//当左结点不存在，或者右结点是刚刚处理过的结点
 				if (rightNode == null || rightNode == prevHandlerNode) {
 					//弹出即处理

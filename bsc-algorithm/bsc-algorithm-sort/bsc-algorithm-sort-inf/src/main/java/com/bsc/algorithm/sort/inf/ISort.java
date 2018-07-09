@@ -4,24 +4,28 @@ public interface ISort<T extends Comparable<T>> {
 
 	/**
 	 * ÉıĞò
+	 * 
 	 * @param data
 	 */
 	void sortAsc(T[] data);
 
 	/**
 	 * ½µĞò
+	 * 
 	 * @param data
 	 */
 	void sortDesc(T[] data);
-	
+
 	/**
 	 * ÉıĞò
+	 * 
 	 * @param data
 	 */
 	void sortAsc(T[] data, int firstIndex, int lastIndex);
 
 	/**
 	 * ½µĞò
+	 * 
 	 * @param data
 	 */
 	void sortDesc(T[] data, int firstIndex, int lastIndex);
@@ -50,8 +54,15 @@ public interface ISort<T extends Comparable<T>> {
 		T temp = data[i];
 		data[i] = data[j];
 		data[j] = temp;
-//		data[i] = data[i] ^ data[j];
-//		data[j] = data[i] ^ data[j];
-//		data[i] = data[i] ^ data[j];
+		// data[i] = data[i] ^ data[j];
+		// data[j] = data[i] ^ data[j];
+		// data[i] = data[i] ^ data[j];
+	}
+
+	default void reverse(T[] data, int from, int to) {
+		if (from < to) {
+			swap(data, from, to);
+			reverse(data, from + 1, to - 1);
+		}
 	}
 }

@@ -6,17 +6,17 @@ import com.bsc.algorithm.data.tree.Node;
 public class Test {
 
 	public static void main(String[] args) {
-		Node J = new Node(8, null, null);
-		Node H = new Node(4, null, null);
-		Node G = new Node(2, null, null);
-		Node F = new Node(7, null, J);
-		Node E = new Node(5, H, null);
-		Node D = new Node(1, null, G);
-		Node C = new Node(9, F, null);
-		Node B = new Node(3, D, E);
-		Node A = new Node(6, B, C);
+		Node<Integer> I = new Node<Integer>(8, null, null);
+		Node<Integer> H = new Node<Integer>(4, null, null);
+		Node<Integer> G = new Node<Integer>(2, null, null);
+		Node<Integer> F = new Node<Integer>(7, null, I);
+		Node<Integer> E = new Node<Integer>(5, H, null);
+		Node<Integer> D = new Node<Integer>(1, null, G);
+		Node<Integer> C = new Node<Integer>(9, F, null);
+		Node<Integer> B = new Node<Integer>(3, D, E);
+		Node<Integer> A = new Node<Integer>(6, B, C);
 
-		INodeHandler nodeHandler= (Node node)->{
+		INodeHandler<Integer> nodeHandler= (Node<Integer> node)->{
 			System.out.print(node.getData() + "\t");
 		};
 		BinaryTree.preOrderTraversal(A, nodeHandler);

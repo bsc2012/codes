@@ -15,7 +15,8 @@ import com.bsc.algorithm.sort.shell.ShellSort;
 public class SortRangeTest {
 
 	public static void main(String[] args) {
-		Integer[] data = ArrayGenerator.random(Integer[].class, 35, 10, 99);
+//		Integer[] data = ArrayGenerator.random(Integer[].class, 35, 10, 99);
+		Integer[] data = ArrayGenerator.seq(Integer[].class, 35, 35, -1);
 		System.out.println(Arrays.toString(data));
 		
 		ISort<Integer> sort = new BubbleSort<>();
